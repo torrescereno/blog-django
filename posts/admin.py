@@ -5,6 +5,7 @@ from posts.models import Author, Category, Post, Comment, PostView
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('user', 'photo')
+    
 
 
 @admin.register(Category)

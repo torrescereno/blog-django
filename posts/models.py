@@ -34,7 +34,7 @@ class Comment(models.Model):
     
 # Post 
 class Post(models.Model):
-    titile = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
     overview = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     content = tinymce_models.HTMLField()

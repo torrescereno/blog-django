@@ -7,7 +7,6 @@ class AuthorAdmin(admin.ModelAdmin):
     list_display = ('user', 'photo')
     
 
-
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
@@ -15,12 +14,12 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'overview', 'content', 'author', 'thumbnail', 'get_categories')
+    list_display = ('title', 'overview', 'content', 'author', 'thumbnail', 'get_categories', 'created')
     readonly_fields = ('created', )
 
     @staticmethod
-    def get_categories(self, obj):
-        return "\n".join([c.categories for c in obj.categories.all()])
+    def get_categories(self):
+        return "\n".join([c.name for c in self.categories.all()])
 
 
 @admin.register(Comment)

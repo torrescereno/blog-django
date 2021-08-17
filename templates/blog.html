@@ -1,0 +1,37 @@
+{% load static %}
+ 
+{% for post in posts %}
+   
+    <h1>{{ post.title }}</h1>
+
+    <br>
+
+    {{ lala }}
+
+    <br>
+
+    {{ post.content | safe }}
+
+    <br>
+
+    <h1>Categorias</h1>
+
+    {% for cat in post.categories.all %}
+        {{ cat }}
+    {% endfor %}
+
+
+    <br>
+
+    <h1>Autor</h1>
+
+    {{ post.author.user.username }}
+
+    <br>
+
+    <a href="{{ post.get_absolute_url }}">{{post.get_absolute_url}}</a>
+
+
+{% empty %}
+    <p>No hya datos</p>
+{% endfor %}

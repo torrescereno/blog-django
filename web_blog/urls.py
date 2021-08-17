@@ -21,8 +21,13 @@ from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from posts.views import PostListView, PostDetailView, PostCreateView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', PostListView.as_view(), name='post-list'),
+    path('post/<pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('create/', PostCreateView.as_view(), name='post-create'),
     path('tinymce/', include('tinymce.urls')),
 ]

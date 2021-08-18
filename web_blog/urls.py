@@ -24,6 +24,7 @@ from django.conf.urls.static import static
 from posts.views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
 
 urlpatterns = [
+    path('', PostListView.as_view(), name='post-list'),
     path('admin/', admin.site.urls),
     path('blog/', PostListView.as_view(), name='post-list'),
     path('create/', PostCreateView.as_view(), name='post-create'),

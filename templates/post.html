@@ -1,1 +1,7 @@
-{{ post_detail.title }}
+
+<form method="POST" action="." enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+

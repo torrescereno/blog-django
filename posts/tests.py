@@ -14,4 +14,3 @@ class AuthorTestCase(TestCase):
 
         author = get_author(self.user)
         self.assertEqual(author.user.username, 'admin')
-

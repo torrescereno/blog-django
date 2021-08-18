@@ -21,13 +21,15 @@ from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from posts.views import PostListView, PostDetailView, PostCreateView
-
+from posts.views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', PostListView.as_view(), name='post-list'),
-    path('post/<pk>/', PostDetailView.as_view(), name='post-detail'),
     path('create/', PostCreateView.as_view(), name='post-create'),
+    path('post/<pk>/', PostDetailView.as_view(), name='post-detail'),
+    path('post/<pk>/update/', PostUpdateView.as_view(), name='post-update'),
+    path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('tinymce/', include('tinymce.urls')),
+    path('accounts/', include('allauth.urls')),
 ]

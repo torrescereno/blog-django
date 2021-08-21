@@ -1,7 +1,14 @@
+
+{% extends 'base.html' %}
 {% load static %}
+
+{% block content %}
  
-{% for post in posts %}
-    {{ post.content | safe }}
-{% empty %}
-    <p>No hya datos</p>
-{% endfor %}
+    {% for post in posts %}
+        {{ post.content | safe }}
+    {% empty %}
+        <p>No hya datos</p>
+    {% endfor %}
+
+{% endblock content %}
+

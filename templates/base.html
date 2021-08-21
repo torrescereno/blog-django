@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Este es un titulo de ejemplo</title>
+</head>
+<body>
+
+
+    <nav class="nav">
+        <ul>
+            <li class="nav__item">Tema 1</li>
+            <li class="nav__item">Tema 2</li>
+            <li class="nav__item">Tema 3</li>
+            <li class="nav__item">Tema 4</li>+++
+            <li><i class="nav__icon"><img class="nav__img" src="{% static 'img/menu.svg' %}" onclick="test()" alt=""></i></li>
+        </ul>
+
+    </nav>
+
+
+</body>
+
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<script src=" {% static 'js/script.js' %} "></script>
+
+</html>

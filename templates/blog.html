@@ -1,5 +1,10 @@
+
+{% extends 'base.html' %}
 {% load static %}
+
+{% block content %}
  
+<<<<<<< HEAD
 {% for post in posts %}
     {% if user.is_authenticated %}
         {{ user.username }}
@@ -8,3 +13,13 @@
 {% empty %}
     <p>No hya datos</p>
 {% endfor %}
+=======
+    {% for post in posts %}
+        {{ post.content | safe }}
+    {% empty %}
+        <p>No hya datos</p>
+    {% endfor %}
+
+{% endblock content %}
+
+>>>>>>> 75ddd0893d70d434b0f86ee4f27393461f027f88

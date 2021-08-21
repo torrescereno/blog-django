@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from posts.forms import PostForm, CommentForm
 
 # Modelos
@@ -13,6 +13,10 @@ def get_author(user):
         return qs[0]
     return None
 
+
+class IndexView(TemplateView):
+    template_name = 'blog.html'
+    
 
 # Listar todos los Posteos
 class PostListView(ListView):

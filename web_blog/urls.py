@@ -21,10 +21,10 @@ from django.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from posts.views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
+from posts.views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, IndexView
 
 urlpatterns = [
-    path('', PostListView.as_view(), name='post-list'),
+    path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path('blog/', PostListView.as_view(), name='post-list'),
     path('create/', PostCreateView.as_view(), name='post-create'),

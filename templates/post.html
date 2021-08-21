@@ -1,4 +1,17 @@
 
+{{post}}
+
+<br>
+
+{% for comment in post.get_comments %}
+
+    {{comment.content}}
+
+{% endfor %}
+
+
+<br>
+
 <form method="POST" action="." enctype="multipart/form-data">
     {% csrf_token %}
     {{ form }}

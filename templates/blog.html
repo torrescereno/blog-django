@@ -1,6 +1,9 @@
 {% load static %}
  
 {% for post in posts %}
+    {% if user.is_authenticated %}
+        {{ user.username }}
+    {% endif %} 
     {{ post.content | safe }}
 {% empty %}
     <p>No hya datos</p>

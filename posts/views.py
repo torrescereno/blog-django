@@ -19,6 +19,7 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog.html'
     context_object_name = 'posts'
+    ordering = ['-created']
     paginate_by = 3
 
     # Funcion para obtener todos el contexto

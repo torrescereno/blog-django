@@ -48,11 +48,12 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     content = tinymce_models.HTMLField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    thumbnail = models.ImageField()
+    thumbnail = models.ImageField(blank=True)
     categories = models.ManyToManyField(Category)
 
     def __str__(self):
         return self.title
+
 
     # Ruta para ir al detalle del post
     def get_absolute_url(self):
@@ -79,6 +80,3 @@ class Post(models.Model):
     def view_count(self):
         return PostView.objects.filter(post=self).count()
 
-
-
-    

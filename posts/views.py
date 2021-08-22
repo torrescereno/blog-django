@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 from posts.forms import PostForm, CommentForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Modelos
 from posts.models import Post, Author, PostView
@@ -15,7 +16,7 @@ def get_author(user):
 
 
 class IndexView(TemplateView):
-    template_name = 'blog.html'
+    template_name = 'home.html'
     
 
 # Listar todos los Posteos
@@ -62,7 +63,7 @@ class PostDetailView(DetailView):
 
     
 # Creacion de post
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_create.html'
     form_class = PostForm
@@ -79,7 +80,7 @@ class PostCreateView(CreateView):
 
 
 # Actulizar post
-class PostUpdateView(UpdateView):
+class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = 'post_create.html'
     form_class = PostForm
@@ -96,7 +97,7 @@ class PostUpdateView(UpdateView):
 
 
 # Delete Post
-class PostDeleteView(DeleteView):
+class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = '/blog'
     template_name = 'post_confirm_delete.html'

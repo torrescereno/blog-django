@@ -25,6 +25,7 @@ from posts.views import PostListView, PostDetailView, PostCreateView, PostUpdate
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('blog/', PostListView.as_view(), name='post-list'),
     path('create/', PostCreateView.as_view(), name='post-create'),
@@ -32,5 +33,5 @@ urlpatterns = [
     path('post/<pk>/update/', PostUpdateView.as_view(), name='post-update'),
     path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('tinymce/', include('tinymce.urls')),
-    path('accounts/', include('allauth.urls')),
+    
 ]

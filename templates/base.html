@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static %}
     <meta charset="UTF-8">
@@ -10,19 +11,38 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Este es un titulo de ejemplo</title>
 </head>
+
 <body>
 
+    <div class="nav">
+        <nav class="nav__container">
+            <a class="nav__logo" href="#">BLOG</a>
+            <div class="nav__menu">
+                <div class="nav__item_container">
+                    <span class="nav__item"><a class="nav__link" href=" {% url 'index' %} ">Inicio</a></span>
+                    <span class="nav__item"><a class="nav__link" href=" {% url 'post-list' %} ">Blog</a></span> {% if user.is_authenticated %}
+                    <span class="nav__item"><a class="nav__link" href=".">Profile</a></span>
+                    <span class="nav__item"><a class="nav__link" href="{% url 'account_logout' %}">Logout</a></span> {% else %}
+                    <span class="nav__item"><a class="nav__link" href="{% url 'account_login' %}">Login</a></span> {% endif %}
 
-    <nav class="nav">
-        <ul>
-            <li class="nav__item">Tema 1</li>
-            <li class="nav__item">Tema 2</li>
-            <li class="nav__item">Tema 3</li>
-            <li class="nav__item">Tema 4</li>+++
-            <li><i class="nav__icon"><img class="nav__img" src="{% static 'img/menu.svg' %}" onclick="test()" alt=""></i></li>
-        </ul>
 
-    </nav>
+                </div>
+            </div>
+            <div class="nav__hamburger">
+                <span class="nav__hamburger__bar"></span>
+                <span class="nav__hamburger__bar"></span>
+                <span class="nav__hamburger__bar"></span>
+            </div>
+        </nav>
+    </div>
+
+    <div class="main">
+        <h1 class="main__title">The Blog</h1>
+
+        {%block content%} {%endblock%}
+
+    </div>
+
 
 
 </body>

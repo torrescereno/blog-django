@@ -57,25 +57,19 @@ class Post(models.Model):
     # Ruta para ir al detalle del post
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
-
-    # Ruta para actulizar el post
-    def get_update_url(self):
-        return reverse('post-update', kwargs={'pk': self.pk})
-
-    # Ruta para eliminar un post
-    def get_delete_url(self):
-        return reverse('post-delete', kwargs={'pk': self.pk})
-
-    # Obtiene todas las propiedades
+        
+    # Obtiene todos los comentarios
     @property
     def get_comments(self):
         return self.comments.all().order_by('-timestamp')
 
     # Obtiene el contador de comentarios
+    @property
     def comment_count(self):
         return Comment.objects.filter(post=self).count()
 
     # Obtiene el contador de vistas
+    @property
     def view_count(self):
         return PostView.objects.filter(post=self).count()
 

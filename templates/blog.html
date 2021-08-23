@@ -3,15 +3,27 @@
 {% load static %}
 
 {% block content %}
- 
-{% for post in posts %}
-    {% if user.is_authenticated %}
-        {{ user.username }}
-    {% endif %} 
-    {{ post.content | safe }}
-{% empty %}
-    <p>No hya datos</p>
-{% endfor %}
 
+    <div class="blog">
+        <h1 class="blog__title">The Blog</h1>
+
+        {% for post in posts %}
+        
+            <div class="blog__card">
+                <a href="{{post.get_absolute_url}}" class="item">
+                    <picture>
+                        <img src="/static/img/tech.jpg" alt="" />
+                    </picture>
+                    <div>
+                        <h2>{{ post.title }}</h2>
+                        <div class="item__time">{{ post.created | date:"M d, Y" }}</div>
+                    </div>
+                </a>
+            </div>
+        {% empty %}
+            <p>No hya datos</p>
+        {% endfor %}
+
+    </div>
 
 {% endblock content %}

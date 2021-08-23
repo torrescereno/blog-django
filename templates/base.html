@@ -16,16 +16,17 @@
 
     <div class="nav">
         <nav class="nav__container">
-            <a class="nav__logo" href="#">BLOG</a>
+            <a class="nav__logo" href="{% url 'post-list' %}">BLOG</a>
             <div class="nav__menu">
                 <div class="nav__item_container">
-                    <span class="nav__item"><a class="nav__link" href=" {% url 'index' %} ">Inicio</a></span>
-                    <span class="nav__item"><a class="nav__link" href=" {% url 'post-list' %} ">Blog</a></span> {% if user.is_authenticated %}
-                    <span class="nav__item"><a class="nav__link" href=".">Profile</a></span>
-                    <span class="nav__item"><a class="nav__link" href="{% url 'account_logout' %}">Logout</a></span> {% else %}
-                    <span class="nav__item"><a class="nav__link" href="{% url 'account_login' %}">Login</a></span> {% endif %}
-
-
+                    <span class="nav__item"><a class="nav__link" href=" {% url 'post-list' %} ">Inicio</a></span>
+                    <span class="nav__item"><a class="nav__link" href=" {% url 'post-list' %} ">Blog</a></span> 
+                    {% if user.is_authenticated %}
+                        <span class="nav__item"><a class="nav__link" href=".">Profile</a></span>
+                        <span class="nav__item"><a class="nav__link" href="{% url 'account_logout' %}">Logout</a></span> 
+                    {% else %}
+                        <span class="nav__item"><a class="nav__link" href="{% url 'account_login' %}">Login</a></span> 
+                    {% endif %}
                 </div>
             </div>
             <div class="nav__hamburger">
@@ -36,14 +37,13 @@
         </nav>
     </div>
 
-    <div class="main">
-        <h1 class="main__title">The Blog</h1>
+    {% block content %}{% endblock content %}
 
-        {%block content%} {%endblock%}
-
-    </div>
-
-
+    <footer class="footer">
+        <div>
+            Footer
+        </div>
+    </footer>
 
 </body>
 

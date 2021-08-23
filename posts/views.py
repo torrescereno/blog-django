@@ -13,10 +13,6 @@ def get_author(user):
     if qs.exists():
         return qs[0]
     return None
-
-
-class IndexView(TemplateView):
-    template_name = 'home.html'
     
 
 # Listar todos los Posteos
@@ -25,7 +21,7 @@ class PostListView(ListView):
     template_name = 'blog.html'
     context_object_name = 'posts'
     ordering = ['-created']
-    paginate_by = 3
+    #paginate_by = 3
 
     # Funcion para obtener todos el contexto
     def get_context_data(self, **kwargs):
@@ -99,6 +95,6 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 # Delete Post
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
-    success_url = '/blog'
+    success_url = ''
     template_name = 'post_confirm_delete.html'
 

@@ -5,10 +5,18 @@
     padding: 0;
 }
 
-html,
-body {
+html {
     font-size: 62.5%;
     font-family: 'Lato', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 li {
@@ -17,12 +25,20 @@ li {
 
 a {
     text-decoration: none;
+    color: black;
 }
 
 
 /* Nav main */
 
 .nav {
+    position: fixed;
+    overflow-y: scroll;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+    top: 0;
+    bottom: 0;
     border-bottom: 1px solid #E2E8F0;
 }
 
@@ -79,6 +95,17 @@ a {
     color: #482ff7;
 }
 
+.footer {
+    margin-top: auto;
+    bottom: 0;
+    width: 100%;
+    padding: 64px 0 86px;
+    text-align: center;
+    background-color: black;
+    color: white;
+    z-index: -1;
+}
+
 
 /* Media query */
 
@@ -123,17 +150,137 @@ a {
     .nav__hamburger.active .nav__hamburger__bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
-    .main {
+    .blog {
         width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        outline: 1px solid red;
     }
-    .main__title {
+    .blog__title {
         font-size: 2.5rem;
         text-align: left;
         width: 100%;
         padding: 2rem 2rem;
+    }
+    /* Contenedores GRID */
+    .blog__card {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    .item {
+        min-width: 95%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 1rem;
+        border-radius: 1rem;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    .item img {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        object-fit: contain;
+        transition: transform .3s ease;
+        border-radius: 1rem;
+    }
+    .item__time {
+        margin-top: 5px;
+    }
+    .item:hover img {
+        transform: scale(1.15);
+    }
+    .item:hover {
+        box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+    }
+    .post {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 20px;
+        margin-top: 50px;
+    }
+    .post__title {
+        font-size: 1.7rem;
+    }
+    .post__meta {
+        padding-top: 10px;
+        font-size: 1.2rem;
+    }
+    .post__content {
+        padding-top: 10px;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+    }
+    .post__commnet {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        font-size: 1.5rem;
+    }
+    .post__comment__item {
+        width: 98%;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, .1);
+        padding: 1rem;
+        margin: 0.4rem;
+    }
+    .post__comment__item:nth-of-type(1) {
+        margin-top: 1rem;
+    }
+    .post__comment__users {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .post__comment__users p {
+        font-size: 1.2rem;
+    }
+    .post__comment__content {
+        padding-top: 1.2rem;
+    }
+    .post__form {
+        display: flex;
+        flex-direction: column;
+    }
+    .post__form__comment {
+        margin-top: 1rem;
+        width: 100%;
+        border: none;
+        border-bottom: 2px solid rgba(0, 0, 0, .3);
+        padding: 1rem;
+    }
+    .post__form__comment:focus {
+        outline: none;
+        border-bottom: 2px solid black;
+    }
+    /* 10 */
+    .post__form__btn {
+        width: 100%;
+        padding: 1rem;
+        border: 2px solid #000;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 1rem;
+        border-radius: 0.5rem;
+    }
+    .post__form__btn:hover {
+        color: white;
+        background-color: black;
+    }
+    .post__login {
+        width: 100%;
+        line-height: 2rem;
+        font-size: 1.5rem;
     }
 }

@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block content %}
 
-
-<div class="col-4 offset-4 mb-5 mt-5">
-<h3>{{ title }} an article</h3>
-{{ form.media }}
-<form method="POST" action="." enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form }}
-    <button class="btn" type="submit">Submit</button>
-</form>
-
-</div>
+    {{ form.media }}
+    <div class="post__form__create">
+        <h1>Creación de post</h1>
+        <form method="POST" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.title }}
+            {{ form.categories }}
+            {{ form.content }}
+            {{ form.thumbnail }}
+            <button class="btn" type="submit">Submit</button>
+        </form>
+    </div>
 
 {% endblock content %}

@@ -40,6 +40,7 @@ a {
     top: 0;
     bottom: 0;
     border-bottom: 1px solid #E2E8F0;
+    z-index: 1;
 }
 
 .nav__container {
@@ -282,5 +283,85 @@ a {
         width: 100%;
         line-height: 2rem;
         font-size: 1.5rem;
+    }
+    .main__login {
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .main__menu {
+        width: 90%;
+        outline: 1px solid red;
+    }
+    .main__form {
+        width: 70%;
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+        border-radius: 10px;
+    }
+    .main__logout__form {
+        width: 100%;
+    }
+    .main__form img {
+        width: 15rem;
+        border-radius: 50%;
+    }
+    .main__form h1 {
+        padding-top: 1rem;
+    }
+    .main__form__btn {
+        width: 50%;
+        margin-top: 2rem;
+        cursor: pointer;
+        padding: 1rem;
+        border-radius: 2rem;
+        background-color: transparent;
+        border: none;
+        outline: 2px solid #2682ff;
+        color: #2682ff;
+        font-weight: bold;
+    }
+    .main__form__btn:hover {
+        background-color: #6aa9ff;
+        color: white;
+        outline: 2px solid #6aa9ff;
+    }
+    .post__form__create {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        padding-top: 7rem;
+        padding-bottom: 3rem;
+    }
+    .post__form__create h1 {
+        padding-bottom: 1rem;
+    }
+    .post__form__create form {
+        width: 90%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        border-radius: 1rem;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
+    }
+    .post__form__create__title {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 1rem;
+    }
+    .post__form__create__content {
+        padding: 1rem;
     }
 }

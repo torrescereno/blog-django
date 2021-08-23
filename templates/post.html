@@ -16,17 +16,15 @@
     <div class="post__commnet">
         <h2>Comentarios:</h2>
         {% for comment in post.get_comments %}
-        <div class="post__comment__item">
-            <div class="post__comment__users">
-                <h3>{{comment.user }}</h3>
-                <p>{{comment.timestamp | date:"M d, Y" }}</p>
+            <div class="post__comment__item">
+                <div class="post__comment__users">
+                    <h3>{{comment.user | title }}</h3>
+                    <p>{{comment.timestamp | date:"M d, Y" }}</p>
+                </div>
+                <div class="post__comment__content">
+                    {{comment.content | safe}}
+                </div>
             </div>
-
-            <div class="post__comment__content">
-                {{comment.content | safe}}
-            </div>
-
-        </div>
         {% endfor %}
     </div>
 
@@ -46,7 +44,7 @@
 
     {% else %}
     <div class="post__login">
-        <p>Si quieres dejar tu comentario puedes <a href="">ingresar</a> o <a href="">registrarte</a></p>
+        <p>Si quieres dejar tu comentario puedes <a href="{% url 'account_login' %}">ingresar</a> o <a href="">registrarte</a></p>
     </div>
     {% endif %}
 

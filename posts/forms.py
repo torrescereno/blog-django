@@ -29,7 +29,9 @@ class PostForm(forms.ModelForm):
         'class': 'post__form__create__content'
     }))
 
-    thumbnail = forms.ImageField(required=False)
+    thumbnail = forms.ImageField(required=False, widget=forms.FileInput(attrs={
+        'class':'post__form__create__img'
+    }))
 
     class Meta:
         model = Post

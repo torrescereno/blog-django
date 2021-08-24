@@ -57,11 +57,17 @@ class PostDetailView(DetailView):
             form.save()
             return redirect(reverse('post-detail', kwargs={'pk': post.pk}))
 
+
+
+class ProfileView(LoginRequiredMixin, TemplateView):
+    model = Author
+    template_name = 'profile.html'
+
     
 # Creacion de post
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    template_name = 'post_create.html'
+    template_name = 'post_form.html'
     form_class = PostForm
 
     def get_context_data(self, **kwargs):
@@ -78,7 +84,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 # Actulizar post
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
-    template_name = 'post_create.html'
+    template_name = 'post_form.html'
     form_class = PostForm
 
     def get_context_data(self, **kwargs):

@@ -1,10 +1,24 @@
- {% extends 'base.html' %} {% load static %} 
- 
+{% extends 'base.html' %} 
+
+{% load static %} 
  
 {% block content %}
 
-    <div class="profile__main">
-        {{user.username}}
+<div class="profile__main">
+    <div class="profile__container">
+        <div class="profile__img">
+            {% if user.photo is null %}
+                <img src="/static/img/user.svg" alt="User"> 
+            {% else %} 
+                <img src="{{user.photo}}" alt="User">
+            {% endif %}    
+        </div>
+        <div class="profile__data">
+            <h1>{{ user.username | title }}</h1>    
+            <p>{{user.first_name | title}} {{user.last_name | title}}</p>
+            <p>{{user.email }}</p>
+        </div>
     </div>
+</div>
 
 {% endblock content %}

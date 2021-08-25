@@ -64,12 +64,10 @@ class Post(models.Model):
         return self.comments.all().order_by('-timestamp')
 
     # Obtiene el contador de comentarios
-    @property
     def comment_count(self):
         return Comment.objects.filter(post=self).count()
 
     # Obtiene el contador de vistas
-    @property
     def view_count(self):
         return PostView.objects.filter(post=self).count()
 

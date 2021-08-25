@@ -63,6 +63,12 @@ class ProfileView(LoginRequiredMixin, TemplateView):
     model = Author
     template_name = 'profile.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["numPosts"] = PostView.objects.filter(user=self.request.user).count()
+        return context
+    
+
     
 # Creacion de post
 class PostCreateView(LoginRequiredMixin, CreateView):

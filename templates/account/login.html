@@ -18,16 +18,11 @@
         <button class="post__form__create__btn" type="submit">{% trans "Sign In" %}</button>
       </form> 
       <div class="main__form__login">
-        <a href="{{ signup_url }}">Registrarse</a>
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Recuparar password" %}</a>
-      </div>
-      <div class="main__form__rss">
-        <div class="main__form__rss__container">
-          <span>
+        <span class="main__form__rss">
             <a href="{% provider_login_url 'google' %}"><img src="/static/img/google.svg" alt="google"> Ingresa con Google</a>
-          </span>
-        </div>
-     </div>
+        </span>
+        <a href="{{ signup_url }}">Registrarse</a>
+      </div>
     </div>  
   </div>
 

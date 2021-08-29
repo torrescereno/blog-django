@@ -538,6 +538,7 @@ a {
 
     .post__form__create {
         padding-top: 7rem;
+        width: 100%;
     }
 
     .post__form__create form {
@@ -545,13 +546,26 @@ a {
     }
 
     .main__form {
-        width: 70%;
+        width: 90%;
     }
 
 }
 
+/* */
+@media  (min-width: 768px) and (max-width: 1200px) {
+   .blog{
+       width: 80%;
+   }
+   .post{
+       width: 80%;
+   }
+   .main__login{
+       width: 80%;
+   }
+}
+
 /* (1920x1080) Full HD Display */
-@media  screen and (max-width: 1920px) {
+@media  (min-width: 1200px) and (max-width: 1920px) {
     .main{
         padding: 5rem 50rem;
     }

@@ -4,7 +4,6 @@ from django.urls import reverse
 from tinymce import models as tinymce_models
 
 
-# Registras cantidad de post de un user
 class PostView(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey('Post', on_delete=models.CASCADE)
@@ -13,7 +12,6 @@ class PostView(models.Model):
         return self.user.username
 
 
-# Categoria
 class Category(models.Model):
     name = models.CharField(max_length=100)
 
@@ -21,7 +19,6 @@ class Category(models.Model):
         return self.name
 
 
-# Autor / Perfil
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     photo = models.ImageField()
@@ -30,7 +27,6 @@ class Author(models.Model):
         return self.user.username
 
 
-# Comentario
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -39,9 +35,7 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.user.username
-    
-    
-# Post 
+
 class Post(models.Model):
     title = models.CharField(max_length=100)
     overview = models.TextField()
@@ -53,21 +47,17 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-
-    # Ruta para ir al detalle del post
-    def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk': self.pk})
-        
-    # Obtiene todos los comentarios
+    
     @property
     def get_comments(self):
         return self.comments.all().order_by('-timestamp')
 
-    # Obtiene el contador de comentarios
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk': self.pk})
+
     def comment_count(self):
         return Comment.objects.filter(post=self).count()
 
-    # Obtiene el contador de vistas
     def view_count(self):
         return PostView.objects.filter(post=self).count()
 

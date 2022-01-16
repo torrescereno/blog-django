@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load account socialaccount %}
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block title %}Login{% endblock %}
+
 {% block content %}
 {% get_providers as socialaccount_providers %}
-
 <div class="container-fluid d-flex flex-column
 text-center align-items-center justify-content-center mt-5">
   <div class="shadow p-3 mb-5 bg-white rounded">
@@ -39,5 +39,4 @@ text-center align-items-center justify-content-center mt-5">
     </div>
   </div>
 </div>
-
 {% endblock %}

@@ -1,12 +1,12 @@
 # If you are using PyCharm #
 .idea/
 
-# Visual Studio Code # 
-.vscode/* 
-!.vscode/settings.json 
-!.vscode/tasks.json 
-!.vscode/launch.json 
-!.vscode/extensions.json 
+# Visual Studio Code #
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .history
 
 # Django #
@@ -15,6 +15,12 @@
 *.pyc
 media
 
+# Cache
+__pycache__
+
 # Environments #
 .venv
 env
+
+# Database
+*.sqlite3

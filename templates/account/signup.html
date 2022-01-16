@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static %}
+
 {% block title %}Registro{% endblock %}
 
 {% block content %}
+
 <div class="container-fluid d-flex flex-column
 text-center align-items-center justify-content-center mt-5">
+
   <div class="shadow p-4 mb-5 bg-white rounded">
     <h1>{% trans "Registro" %}</h1>
     <form class="p-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}
-      <div class="mb-3">{{ form.username }}</div>
       <div class="mb-3">{{ form.email }}</div>
+      <div class="mb-3">{{ form.username }}</div>
       <div class="mb-3">{{ form.password1 }}</div>
       <div class="mb-3">{{ form.password2 }}</div>
       {% if redirect_field_value %}
@@ -24,4 +27,7 @@ text-center align-items-center justify-content-center mt-5">
     </div>
   </div>
 </div>
+
+{% include 'error_message_form.html' %}
+
 {% endblock %}

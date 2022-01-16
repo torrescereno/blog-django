@@ -57,8 +57,6 @@ class PostDetailView(DetailView):
             form.save()
             return redirect(reverse('post-detail', kwargs={'pk': post.pk}))
 
-
-
 class ProfileView(LoginRequiredMixin, TemplateView):
     model = Author
     template_name = 'profile.html'
@@ -67,9 +65,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context["numPosts"] = PostView.objects.filter(user=self.request.user).count()
         return context
-    
 
-    
 # Creacion de post
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -86,7 +82,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         form.save()
         return redirect(reverse('post-detail', kwargs={'pk': form.instance.pk}))
 
-
 # Actulizar post
 class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
@@ -102,7 +97,6 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
         form.instance.author = get_author(self.request.user)
         form.save()
         return redirect(reverse('post-detail', kwargs={'pk': form.instance.pk}))
-
 
 # Delete Post
 class PostDeleteView(LoginRequiredMixin, DeleteView):

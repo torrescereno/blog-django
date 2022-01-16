@@ -1,6 +1,6 @@
 # Simple Blog Django
 
-Blog de prueba responsive que permite autenticacion con user o con cuenta de google. Creado con Django 3.2 y Python 3.8
+Blog de prueba responsive que permite autenticación con user o con cuenta de google. Creado con Django 3.2 y Python 3.8
 
 ## Dependencias
 
@@ -9,9 +9,9 @@ Blog de prueba responsive que permite autenticacion con user o con cuenta de goo
 * Dajngo 3.2
 * Tinymce
 
-## Instalacion de dependencias
+## Instalación de dependencias
 
-Desde la raiz del proyecto:
+Desde la raíz del proyecto:
 
 ```
 pip install -r requirements.txt
@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ## Ejecutar proyecto
 
-Creacion de la base de datos, tablas y migracion
+Creacioón de la base de datos, tablas y migración
 
 ```
 python manage.py makemigrations
@@ -29,13 +29,13 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Cracion de usuario administrador
+Cración de usuario administrador
 
 ```
 python manage.py createsuperuser
 ```
 
-Ejecucion del proyecto
+Ejecución del proyecto
 
 ```
 python manage.py runserver

@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ## Ejecutar proyecto
 
-Creacioón de la base de datos, tablas y migración
+Creación de la base de datos, tablas y migración
 
 ```
 python manage.py makemigrations

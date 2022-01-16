@@ -1,24 +1,25 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 
-{% load static %} 
- 
+{% load static %}
+
 {% block content %}
 
-<div class="profile__main">
-    <div class="profile__container">
-        <div class="profile__img">
-            {% if user.photo is null %}
-                <img src="/static/img/user.svg" alt="User"> 
-            {% else %} 
-                <img src="{{user.photo}}" alt="User">
-            {% endif %}    
-        </div>
-        <div class="profile__data">
-            <h1>{{ user.username | title }}</h1>    
-            <p>{{user.first_name | title}} {{user.last_name | title}}</p>
+<div class="container-fluid h-100 d-flex flex-column
+    text-center align-items-center justify-content-center mt-5">
+
+    <div class="d-flex flex-column align-items-center p-4 shadow p-3 mb-5 bg-body rounded" style="width: 18rem;">
+        {% if user.photo is null %}
+        <img src="/static/img/user.svg" class="card-img-top w-50" alt="Usuario">
+        {% else %}
+        <img src="{{user.photo}}" class="card-img-top w-25" alt="User">
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title"><strong>{{ user.username | title }}</strong></h5>
+            <p class="card-text">{{user.first_name | title}} {{user.last_name | title}}</p>
             <p>{{user.email }}</p>
         </div>
     </div>
+
 </div>
 
 {% endblock content %}

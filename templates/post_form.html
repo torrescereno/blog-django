@@ -3,18 +3,27 @@
 
 
 {% block content %}
-
+<div class="container-fluid">
     {{ form.media }}
-    <div class="post__form__create">
-        <h1>Creación de post</h1>
+    <div class="mt-3">
+        <h1><strong>Creación de post</strong></h1>
         <form method="POST" action="." enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form.title }}
-            {{ form.categories }}
-            {{ form.content }}
-            {{ form.thumbnail }}
-            <button class="post__form__create__btn" type="submit">Enviar</button>
+            <div class="mt-3">
+                {{ form.title }}
+            </div>
+            <div class="mt-3">
+                {{ form.content }}
+            </div>
+            <div class="mt-3">
+                {{ form.thumbnail }}
+            </div>
+            <div class="mt-3 form-switch">
+                {{ form.categories }}
+            </div>
+            <button class="btn btn-dark w-100 mt-3 mb-3 pe-auto" type="submit">Enviar</button>
         </form>
     </div>
+</div>
 
 {% endblock content %}

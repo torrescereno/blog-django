@@ -3,26 +3,21 @@
 
 {% block content %}
 
-    <div class="blog">
-        <h1 class="blog__title">The Blog</h1>
-
-        {% for post in posts %}
-        
-            <div class="blog__card">
-                <a href="{{post.get_absolute_url}}" class="item">
-                    <picture>
-                        <img src="/static/img/tech.jpg" alt="" />
-                    </picture>
-                    <div>
-                        <h2>{{ post.title }}</h2>
-                        <div class="item__time">{{ post.created | date:"M d, Y" }}</div>
-                    </div>
-                </a>
+<div class="container-fluid mt-3">
+    {% for post in posts %}
+    <a class="text-decoration-none link-dark" href="{{post.get_absolute_url}}">
+        <div class="mb-4 shadow p-3 bg-body rounded">
+            <div class="card-body">
+                <p class="card-title h1">{{ post.title }}</p>
+                <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer.</p> -->
+                <p class="card-text"><small class="text-muted">{{ post.created | date:"M d, Y" }}</small></p>
             </div>
-        {% empty %}
-            <p>No hya datos</p>
-        {% endfor %}
-
-    </div>
-
+            <img src="/static/img/tech.jpg" class="card-img-bottom" alt="Imagen">
+        </div>
+    </a>
+    {% empty %}
+    <p>No hya datos</p>
+    {% endfor %}
+</div>
 {% endblock content %}

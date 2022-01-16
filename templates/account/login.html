@@ -5,25 +5,39 @@
 {% block content %}
 {% get_providers as socialaccount_providers %}
 
-  <div class="main__login">
-    <div class="main__form">
-      <h1>LOGIN</h1>
-      <form class="" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
+<div class="container-fluid d-flex flex-column
+text-center align-items-center justify-content-center mt-5">
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h1 class="mt-3 mb-3 h3">LOGIN</h1>
+    <form class="p-3" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      <div class="mb-3">
         {{ form.login }}
-        {{ form.password }}
-        {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
-        <button class="post__form__create__btn" type="submit">{% trans "Sign In" %}</button>
-      </form> 
-      <div class="main__form__login">
-        <span class="main__form__rss">
-            <a href="{% provider_login_url 'google' %}"><img src="/static/img/google.svg" alt="google"> Ingresa con Google</a>
-        </span>
-        <a href="{{ signup_url }}">Registrarse</a>
       </div>
-    </div>  
+      <div class="mb-3">
+        {{ form.password }}
+      </div>
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button class="btn btn-dark w-100 mt-3" type="submit">{% trans "Sign In" %}</button>
+    </form>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-3">
+          ¿ No tienes una cuenta ? <a href=" {{ signup_url }}">Registrarse</a>
+        </div>
+        <div class="col-md-3 mt-3">
+          <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}" role="button"
+            style="text-transform:none">
+            <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in"
+              src="/static/img/google.svg" />
+            Ingresa con Google
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
 {% endblock %}

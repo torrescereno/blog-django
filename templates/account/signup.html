@@ -1,29 +1,32 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load static %} 
+{% load static %}
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
 
-<div class="main__login">
-  <div class="main__form">
+<div class="container-fluid d-flex flex-column
+text-center align-items-center justify-content-center mt-5">
+
+  <div class="shadow p-3 mb-5 bg-white rounded">
     <h1>{% trans "Registro" %}</h1>
-  
-    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+    <form class="p-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
       {% csrf_token %}
-      {{ form.username }}
-      {{ form.email }}
-      {{ form.password1 }}
-      {{ form.password2 }}
+      <div class="mb-3">{{ form.username }}</div>
+      <div class="mb-3">{{ form.email }}</div>
+      <div class="mb-3">{{ form.password1 }}</div>
+      <div class="mb-3">{{ form.password2 }}</div>
       {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
-      <button class="post__form__create__btn" type="submit">{% trans "Enviar" %}</button>
+      <button class="btn btn-dark w-100 mt-3 mb-3" type="submit">{% trans "Enviar" %}</button>
     </form>
-    <div class="main__form__login">
-      <p>{% blocktrans %}Ya tienes una cuenta ? Ingresa al <a href="{{ login_url }}">Login</a>.{% endblocktrans %}</p>
+    <div>
+      <p>¿ {% blocktrans %}Ya tienes una cuenta ? Ingresa al <a href="{{ login_url }}">Login</a>.{% endblocktrans %}</p>
     </div>
   </div>
+
 </div>
+
 
 {% endblock %}

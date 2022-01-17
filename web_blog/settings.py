@@ -142,11 +142,10 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend'
 )
 
-
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
-SITE_ID = 1
+SITE_ID = 2
 LOGIN_REDIRECT_URL = '/'
 ACCOUNT_SIGNUP_REDIRECT_URL = '/'
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"

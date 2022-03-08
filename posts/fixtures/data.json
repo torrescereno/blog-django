@@ -1,0 +1,30 @@
+[
+    {
+        "model": "posts.Category",
+        "pk": 1,
+        "fields": {
+            "name": "IA"
+        }
+    },
+    {
+        "model": "posts.Category",
+        "pk": 2,
+        "fields": {
+            "name": "Informática"
+        }
+    },
+    {
+        "model": "posts.Category",
+        "pk": 3,
+        "fields": {
+            "name": "Tecnología"
+        }
+    },
+    {
+        "model": "posts.Category",
+        "pk": 4,
+        "fields": {
+            "name": "Telecomunicaciones"
+        }
+    }
+]

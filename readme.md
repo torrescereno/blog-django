@@ -21,22 +21,28 @@ pip install -r requirements.txt
 
 Creación de la base de datos, tablas y migración
 
-```
+```python
 python manage.py makemigrations
 ```
 
+Creación de categoías
+
+```python
+python manage.py loaddata data.json
 ```
+
+```python
 python manage.py migrate
 ```
 
 Cración de usuario administrador
 
-```
+```python
 python manage.py createsuperuser
 ```
 
 Ejecución del proyecto
 
-```
+```python
 python manage.py runserver
 ```

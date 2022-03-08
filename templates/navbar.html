@@ -7,8 +7,10 @@
                 <li>
                     <a class="nav-link px-2 text-white" href=" {% url 'post-list' %} ">Home</a>
                 </li>
+                <li>
+                    <a class="nav-link px-2 text-white" href=" {% url 'about' %} ">About</a>
+                </li>
                 {% if user.is_authenticated %}
-
                 {% if user.is_superuser %}
                 <li>
                     <a class="nav-link px-2 text-white" href=" {% url 'post-create' %} ">Crear post</a>

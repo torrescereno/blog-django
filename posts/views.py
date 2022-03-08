@@ -13,9 +13,9 @@ def get_author(user):
     if qs.exists():
         return qs[0]
     return None
-    
 
-# Listar todos los Posteos
+
+# Listar todos los Posts
 class PostListView(ListView):
     model = Post
     template_name = 'blog.html'
@@ -27,7 +27,7 @@ class PostListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-    
+
 
 # Obtener el detalle de un blog
 class PostDetailView(DetailView):
@@ -74,12 +74,21 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = 'Create' 
+        context["title"] = 'Create'
         return context
 
     def form_valid(self, form):
-        form.instance.author = get_author(self.request.user)
+
+        author = get_author(self.request.user)
+
+        if not author:
+            self.autor = Author.objects.create(user=self.request.user)
+            form.instance.author = self.autor
+        else:
+            form.instance.author = author
+
         form.save()
+
         return redirect(reverse('post-detail', kwargs={'pk': form.instance.pk}))
 
 # Actulizar post
@@ -98,7 +107,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
         form.save()
         return redirect(reverse('post-detail', kwargs={'pk': form.instance.pk}))
 
-# Delete Post
+# Borrar Post
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
     success_url = ''

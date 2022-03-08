@@ -23,8 +23,8 @@ class PostForm(forms.ModelForm):
         choices=CHOICE)
 
     content = forms.CharField(widget=TinyMCEWidget(mce_attrs={'content_css': "/static/css/style.css"}, attrs={
-        'required': False, 
-        'rows': '10', 
+        'required': False,
+        'rows': '10',
         'placeholder': 'Ingresa el contenido del post',
         'class': ''
     }))

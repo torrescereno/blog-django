@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class AuthorTestCase(TestCase):
 
     def setUp(self):
-        self.user = User.objects.create(username='admin', password='admin2020')
+        self.user = User.objects.create(username='admin', password='admin')
         self.autor = Author.objects.create(user=self.user)
 
     def test_get_author(self):

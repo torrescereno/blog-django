@@ -26,7 +26,3 @@ class PostAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('user', 'timestamp', 'content', 'post')
 
-
-@admin.register(PostView)
-class PostViewAdmin(admin.ModelAdmin):
-    list_display = ('user', 'post')

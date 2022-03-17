@@ -6,10 +6,11 @@ from tinymce import models as tinymce_models
 
 class PostView(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    post = models.ForeignKey("Post", on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -19,6 +20,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -30,17 +32,19 @@ class Author(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
-    post = models.ForeignKey('Post', related_name='comments' , on_delete=models.CASCADE)
+    post = models.ForeignKey("Post", related_name="comments", on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = "Comentarios"
 
     def __str__(self):
         return self.user.username
+
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -59,14 +63,13 @@ class Post(models.Model):
 
     @property
     def get_comments(self):
-        return self.comments.all().order_by('-timestamp')
+        return self.comments.all().order_by("-timestamp")
 
     def get_absolute_url(self):
-        return reverse('post-detail', kwargs={'pk': self.pk})
+        return reverse("post-detail", kwargs={"pk": self.pk})
 
     def comment_count(self):
         return Comment.objects.filter(post=self).count()
 
     def view_count(self):
         return PostView.objects.filter(post=self).count()
-

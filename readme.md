@@ -29,7 +29,7 @@ python manage.py makemigrations blog
 python manage.py migrate
 ```
 
-Creación de categoías
+Creación de categorías
 
 ```python
 python manage.py loaddata data.json

@@ -6,7 +6,7 @@ Blog de prueba responsive que permite autenticación con user o con cuenta de go
 
 * Pillow
 * Allauth
-* Dajngo 3.2
+* Dajngo 4.0.3
 * Tinymce
 
 ## Instalación de dependencias

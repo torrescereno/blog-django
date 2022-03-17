@@ -26,3 +26,6 @@ env
 
 # Database
 *.sqlite3
+
+# Migrations
+migrations

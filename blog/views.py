@@ -8,8 +8,8 @@ from django.views.generic import (
     TemplateView,
 )
 from blog.forms import PostForm, CommentForm
-from django.contrib.auth.mixins import LoginRequiredMixin
 from blog.models import Post, Author, PostView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 def get_author(user):

@@ -1,3 +1,4 @@
+from cmath import log
 from django import forms
 from blog.models import Post, Comment, Category
 from tinymce.widgets import TinyMCE
@@ -11,8 +12,11 @@ class TinyMCEWidget(TinyMCE):
 class PostForm(forms.ModelForm):
 
     CHOICE = []
-    for c in Category.objects.all():
-        CHOICE.append((c.pk, c))
+    try:
+        for c in Category.objects.all():
+            CHOICE.append((c.pk, c))
+    except Exception as e:
+        print(str(e))
 
     title = forms.CharField(
         widget=forms.TextInput(

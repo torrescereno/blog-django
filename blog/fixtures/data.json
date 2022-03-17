@@ -1,27 +1,27 @@
 [
     {
-        "model": "posts.Category",
+        "model": "blog.Category",
         "pk": 1,
         "fields": {
             "name": "IA"
         }
     },
     {
-        "model": "posts.Category",
+        "model": "blog.Category",
         "pk": 2,
         "fields": {
             "name": "Informática"
         }
     },
     {
-        "model": "posts.Category",
+        "model": "blog.Category",
         "pk": 3,
         "fields": {
             "name": "Tecnología"
         }
     },
     {
-        "model": "posts.Category",
+        "model": "blog.Category",
         "pk": 4,
         "fields": {
             "name": "Telecomunicaciones"

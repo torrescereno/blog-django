@@ -6,19 +6,22 @@
 {% block content %}
 <div class="container-fluid mt-3">
     <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center justify-content-center">
-        <div class="col-12 col-lg-8">
+        <section class="col-12 col-lg-8">
+            <h1>Post más recientes</h1>
+        </section>
+        <section class="col-12 col-lg-8">
             {% for post in posts %}
             <a class="text-decoration-none link-dark" href="{{post.get_absolute_url}}">
-                <div class="mb-4 shadow p-3 bg-body rounded ">
+                <div class="card mb-3 border-0 shadow p-3 bg-body">
+                    <!-- <img src="/static/img/tech.jpg" class="card-img-top" alt="{{ post.title }}"> -->
                     <div class="card-body">
-                        <p class="card-title h1">{{ post.title }}</p>
-                        <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                            content. This content is a little bit longer.</p> -->
-                        <p class="card-text">
-                            <small class="text-muted">{{ post.created | date:"M d, Y" }}</small>
-                        </p>
+                        <h5 class="card-title">{{ post.title }} </h5>
+                        <small class="text-muted">{{ post.created | date:"M d, Y" }}</small>
+                        <p class="card-text mt-2">This is a wider card with supporting text below as a natural lead-in
+                            to
+                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Leer más</small></p>
                     </div>
-                    <!-- <img src="/static/img/tech.jpg" class="card-img-bottom" alt="Imagen"> -->
                 </div>
             </a>
             {% empty %}
@@ -26,7 +29,7 @@
                 <h1>No hay páginas aún</h1>
             </div>
             {% endfor %}
-        </div>
+        </section>
     </div>
 </div>
 {% endblock content %}

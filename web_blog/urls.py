@@ -19,17 +19,24 @@ from django.urls import path
 from django.urls import include
 from django.views.generic import TemplateView
 
-from posts.views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, ProfileView
+from blog.views import (
+    PostListView,
+    PostDetailView,
+    PostCreateView,
+    PostUpdateView,
+    PostDeleteView,
+    ProfileView,
+)
 
 urlpatterns = [
-    path('', PostListView.as_view(), name='post-list'),
-    path('accounts/', include('allauth.urls')),
-    path('admin/', admin.site.urls),
-    path('create/', PostCreateView.as_view(), name='post-create'),
-    path('post/<pk>/', PostDetailView.as_view(), name='post-detail'),
-    path('post/<pk>/update/', PostUpdateView.as_view(), name='post-update'),
-    path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
-    path('profile/', ProfileView.as_view(), name='profile'),
-    path('about/', TemplateView.as_view(template_name="about.html"), name="about"),
-    path('tinymce/', include('tinymce.urls')),
+    path("", PostListView.as_view(), name="post-list"),
+    path("accounts/", include("allauth.urls")),
+    path("admin/", admin.site.urls),
+    path("create/", PostCreateView.as_view(), name="post-create"),
+    path("post/<pk>/", PostDetailView.as_view(), name="post-detail"),
+    path("post/<pk>/update/", PostUpdateView.as_view(), name="post-update"),
+    path("post/<pk>/delete/", PostDeleteView.as_view(), name="post-delete"),
+    path("profile/", ProfileView.as_view(), name="profile"),
+    path("about/", TemplateView.as_view(template_name="about.html"), name="about"),
+    path("tinymce/", include("tinymce.urls")),
 ]

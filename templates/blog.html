@@ -6,14 +6,13 @@
 {% block content %}
 <div class="container-fluid mt-3">
     <div class="row row-cols-1 row-cols-md-2 g-4 align-items-center justify-content-center">
-        <section class="col-12 col-lg-8">
+        <!-- <section class="col-12 col-lg-8">
             <h1>Post más recientes</h1>
-        </section>
-        <section class="col-12 col-lg-8">
+        </section> -->
+        <section class="col-12 col-lg-6">
             {% for post in posts %}
             <a class="text-decoration-none link-dark" href="{{post.get_absolute_url}}">
-                <div class="card mb-3 border-0 shadow p-3 bg-body">
-                    <!-- <img src="/static/img/tech.jpg" class="card-img-top" alt="{{ post.title }}"> -->
+                <div class="card mb-3 border-0 shadow p-3">
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }} </h5>
                         <small class="text-muted">{{ post.created | date:"M d, Y" }}</small>

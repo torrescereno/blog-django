@@ -1,4 +1,3 @@
-from cmath import log
 from django import forms
 from blog.models import Post, Comment, Category
 from tinymce.widgets import TinyMCE
@@ -12,6 +11,7 @@ class TinyMCEWidget(TinyMCE):
 class PostForm(forms.ModelForm):
 
     CHOICE = []
+
     try:
         for c in Category.objects.all():
             CHOICE.append((c.pk, c))
@@ -42,7 +42,7 @@ class PostForm(forms.ModelForm):
     )
 
     thumbnail = forms.ImageField(
-        required=False, widget=forms.FileInput(attrs={"class": "form-control"})
+        required=True, widget=forms.FileInput(attrs={"class": "form-control"})
     )
 
     class Meta:

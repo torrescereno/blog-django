@@ -80,7 +80,6 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         author = get_author(self.request.user)
-        print(form)
         if not author:
             self.autor = Author.objects.create(user=self.request.user)
             form.instance.author = self.autor

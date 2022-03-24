@@ -1,6 +1,6 @@
 # Simple Blog Django
 
-Blog de prueba responsive que permite autenticación con user o con cuenta de google. Creado con Django 3.2 y Python 3.8
+Blog de prueba responsive con django
 
 ## Dependencias
 
